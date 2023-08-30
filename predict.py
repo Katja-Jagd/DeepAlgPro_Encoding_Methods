@@ -71,6 +71,7 @@ def predict(args):
     else:
         model.load_state_dict(torch.load('model.'+ args.et +'.pt', map_location=torch.device('cpu')),
                               strict=True)
+    model.eval()
     with torch.no_grad():
         pred_r = []
         for i, data in enumerate(data_loader, 0):
